@@ -1,0 +1,11 @@
+# OMC orchestration state (machine-local)
+.omc/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+*.swp
