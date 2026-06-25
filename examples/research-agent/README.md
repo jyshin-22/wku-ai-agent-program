@@ -1,0 +1,29 @@
+# 리서치 에이전트 템플릿
+
+팀별 리서치 AI Agent를 만들 때 출발점으로 쓰는 템플릿입니다.
+이 폴더를 통째로 복사해 팀 작업 폴더로 사용하세요.
+
+## 폴더 구조
+```
+research-agent/
+  CLAUDE.md                 # 에이전트 작동 규칙 (검색→검증→종합→보고)
+  research-plan-template.md # 팀 리서치 기획서 (주제·질문·범위)
+  run-log-template.md       # 실행 기록 (무엇을 시도/관찰했나)
+  sources/                  # 자료 폴더 — 교육용 가상 자료 6개 (실제로 교체)
+  output/                   # 결과물 — 보고서·분석 노트 양식
+```
+
+## 워크플로우 (Day 3~5)
+1. **기획** (Day 3): `research-plan-template.md` 를 채워 주제·핵심 질문 확정
+2. **구현** (Day 4 오전): `CLAUDE.md` 규칙대로 검색→검증→종합 흐름 구성 (MVP부터)
+3. **실행/분석** (Day 4~5): `sources/` 자료로 돌려보고 `output/` 에 결과·분석 정리
+4. **보고/발표** (Day 5): `output/report-template.md` 로 보고서, 발표자료 작성
+
+## 시작하기
+```bash
+cd research-agent
+claude
+```
+그다음(예): "research-plan.md 를 읽고, sources/ 의 자료로 핵심 질문에 답하는 초안을 만들어줘. 각 주장에 출처를 달고, 자료 간 상충은 표시해줘."
+
+> ⚠ `sources/` 는 **교육용 가상 자료**입니다. 실제 프로젝트에선 진짜 자료/웹검색으로 바꾸세요.

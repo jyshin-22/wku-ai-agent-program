@@ -59,3 +59,4 @@
 - 슬라이드 유형: bullets · 2단 비교(twocol) · 가로 흐름도(process) · 큰 숫자(stat) · 도식 placeholder(diagram) · 실습(lab)
 - 내용은 placeholder 중심: 강사가 채울 수 있도록 구조·헤더·학습목표·세션 개요만 제공
 - 10분 단위 운영안: `timetable.md`
+- 실습·프로젝트용 예제/템플릿: `examples/` (프롬프트 템플릿 · 동작 확인 샌드박스 · 리서치 에이전트 템플릿 + 가상 자료)
