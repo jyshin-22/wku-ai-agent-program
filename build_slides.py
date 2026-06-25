@@ -262,7 +262,7 @@ def slide_lab(prs, day, title, steps, deliverable):
     add_rect(s, Inches(0.55), Inches(1.95), Inches(8.0), Inches(4.55), fill=CARD,
              line=LINE, line_w=Pt(1), shape=MSO_SHAPE.ROUNDED_RECTANGLE)
     add_text(s, Inches(0.85), Inches(2.15), Inches(7.4), Inches(0.4),
-             [[("실습 단계 (placeholder)", 13, ac, True, FONT_B)]])
+             [[("실습 단계", 13, ac, True, FONT_B)]])
     yy = Inches(2.7)
     for i, st in enumerate(steps):
         add_rect(s, Inches(0.85), yy, Inches(0.45), Inches(0.45), fill=ac, shape=MSO_SHAPE.OVAL)
