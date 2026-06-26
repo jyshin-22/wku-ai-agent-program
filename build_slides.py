@@ -95,12 +95,27 @@ def bg(slide, color):
     add_rect(slide, 0, 0, SW, SH, fill=color)
 
 def footer(slide, day, total_pages=None):
+    # 좌측 푸터 텍스트만 (우측 Day·페이지 표시는 stamp_pages 후처리에서)
     add_text(slide, Inches(0.55), Inches(7.02), Inches(8), Inches(0.4),
              [[("AI 에이전트와 응용  ·  원광대학교 5일 교육", 9, MUTED, False, FONT_B)]],
              anchor=MSO_ANCHOR.MIDDLE)
-    add_text(slide, Inches(11.2), Inches(7.02), Inches(1.6), Inches(0.4),
-             [[(f"Day {day} · {DAY_KR[day]}", 9, DAY_COLORS[day], True, FONT_B)]],
-             align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
+
+def stamp_pages(prs, day):
+    """빌드 후 모든 슬라이드 우측하단에 'Day N · 요일 · 현재/전체' 표기 (배경색 자동 대응)."""
+    total = len(prs.slides._sldIdLst)
+    for idx, slide in enumerate(prs.slides, 1):
+        dark = False
+        try:
+            rgb = slide.shapes[0].fill.fore_color.rgb  # 첫 도형 = 배경 사각형
+            dark = (rgb[0] + rgb[1] + rgb[2]) < 320
+        except Exception:
+            pass
+        daycol = DAY_COLORS[day]
+        pgcol = RGBColor(0xCB, 0xD5, 0xE1) if dark else MUTED
+        add_text(slide, Inches(9.83), Inches(7.02), Inches(2.95), Inches(0.4),
+                 [[(f"Day {day} · {DAY_KR[day]}", 9, daycol, True, FONT_B),
+                   (f"   ·   {idx} / {total}", 9, pgcol, True, FONT_B)]],
+                 align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
 
 # ---------- 슬라이드 타입 ----------
 def slide_title(prs, day, day_title, subtitle, sessions, slots):
@@ -427,6 +442,7 @@ def build_day(prs, day, cfg):
             elif kind == "diagram":
                 slide_diagram(prs, day, sl[1], sl[2], sl[3])
     slide_wrap(prs, day, cfg["takeaways"], cfg["teaser"])
+    stamp_pages(prs, day)
 
 def new_prs():
     prs = Presentation(); prs.slide_width = SW; prs.slide_height = SH
