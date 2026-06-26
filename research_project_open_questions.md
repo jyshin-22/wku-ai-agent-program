@@ -53,3 +53,15 @@ Agent 기반 가설 생성의 쟁점 - 둘 중 어느 것에 집중해야 하는
 - **가드 3가지**: 다중검정 위양성(hold-out·재현·통계 보정) · 싼 테스트는 proxy(Goodhart 주의) · 대규모 생성 비용.
 - **funnel**: 넓게 생성(제약) → LLM 최소 prune(winner 고르기 금지) → 싼 경험적 스크린(실제 선별) → 소수만 비싼 검증.
 - ⚠ **도메인 caveat**: 신약/wet-lab/임상은 *최종* 검증이 agent로도 안 싸진다. agent가 싸게 하는 건 in-silico/문헌/시뮬 단계 → 전략은 **단계적**(싼 in-silico breadth → 좁히기 → 비싼 실측).
+
+---
+
+## 참고문헌 (가설 생성 방법론)
+
+Day 4 가설 생성은 아래 연구의 방법론을 **개념적 청사진**으로 차용(그대로 실행 X — Claude Code로 간소화 구현):
+- **MOOSE-Chem** (ICLR 2025) — LLM으로 화학 가설 발견. 3단계: *영감 검색(inspiration retrieval) → 조합 생성(background + inspirations) → 순위(ranking)*. arXiv 2410.07076 · github.com/ZonglinY/MOOSE-Chem
+- **MOOSE** (ACL 2024) — open-domain 가설 발견(화학 비한정). 약학/일반 주제에 더 잘 맞는 선행 연구. github.com/ZonglinY/MOOSE
+- **MOOSE-Chem2** (NeurIPS 2025) — 계층적 탐색으로 세밀한 가설(더 복잡 — 참고만). arXiv 2505.19209
+
+> 우리 파이프라인 대응: 영감 검색 ≈ 자료 파악·gap, 조합 생성 ≈ 가설 생성(gap+조합), 순위 ≈ 평가·우선순위.
+> 그대로 도입은 비추천(OpenAI 전용·conda·화학 특화) — Claude Code로 간소화 차용이 적합.
