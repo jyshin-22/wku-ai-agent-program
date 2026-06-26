@@ -16,7 +16,8 @@ research-agent/
   CLAUDE.md                 # 에이전트 작동 규칙 (자료파악→gap→가설생성→평가·제안)
   research-plan-template.md # 팀 기획서 (분야·발견 목표·범위)
   run-log-template.md       # 실행 기록 (무엇을 시도/관찰했나)
-  sources/                  # 자료 폴더 — 교육용 가상 자료 6개 (실제로 교체)
+  collect/                  # ★ 논문 수집(PubMed) 스크립트 + 가이드 (Day 4 오전)
+  sources/                  # 자료 폴더 — 교육용 가상 자료 6개 (직접 수집한 papers/로 교체)
   output/                   # 결과물 — 가설 제안서·분석 노트 양식
 ```
 
