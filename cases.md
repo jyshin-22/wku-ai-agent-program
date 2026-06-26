@@ -15,7 +15,7 @@
 - **Mata v. Avianca (美 연방법원, 2023)** — 변호사가 ChatGPT가 지어낸 가짜 판례 6건 인용 → 판사 **$5,000 벌금**(2023.6.22). en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.
 - **에어캐나다 챗봇 (2024.2)** — 챗봇이 없는 환불정책 지어냄 → 법원이 항공사 배상 책임 인정(C$812). cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416
 
-## 3. 사전학습 vs 정렬(RLHF)
+## 3. 사전학습 vs 정렬(RLHF)ㅍ
 - **InstructGPT (OpenAI, 2022)** — RLHF 정렬한 1.3B 모델 답을 175B GPT-3보다 사람이 선호(~71%). "능력은 같아도 정렬이 지시 이행을 만든다". openai.com/index/instruction-following · arXiv 2203.02155
 
 ## 4. 추론 모델 ⚠빠르게 바뀜
