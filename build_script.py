@@ -44,7 +44,7 @@ def main():
         "",
         "> 슬라이드와 1:1 대응. 각 항목: **화면**(슬라이드 요점) + **대본/진행**(말할 내용).",
         "> 자동 생성물입니다 — 슬라이드 변경 후 `python3 build_script.py` 로 갱신.",
-        "> 대본은 `script_notes.py` 에서 보강. `[보강 예정]` = 아직 미작성(요점만).",
+        "> 대본은 **강의 슬라이드만** 작성 (`script_notes.py`). 실습·프로젝트 슬라이드는 '강사 직접 진행'.",
     ]
     total = authored = 0
     for day in range(1, 6):
@@ -65,7 +65,8 @@ def main():
                 script = note.get((slot, t))
                 if script:
                     authored += 1
-                out += ["", "**대본/진행**", "", script if script else "[보강 예정]"]
+                default = "*실습·진행 슬라이드 — 강사가 직접 진행 (대본 생략)*"
+                out += ["", "**대본/진행**", "", script if script else default]
     open("script.md", "w", encoding="utf-8").write("\n".join(out) + "\n")
     print(f"script.md written — {total} slides, {authored} authored, "
           f"{total - authored} 보강 예정")
