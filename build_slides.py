@@ -253,12 +253,13 @@ def slide_bullets(prs, day, kicker, title, bullets, note=None):
                  anchor=MSO_ANCHOR.MIDDLE)
     return s
 
-def slide_twocol(prs, day, kicker, title, left_h, left_items, right_h, right_items):
+def slide_twocol(prs, day, kicker, title, left_h, left_items, right_h, right_items, note=None):
     s = blank(prs); ac = DAY_COLORS[day]
     header(s, day, kicker, title)
+    card_h = Inches(3.85) if note else Inches(4.4)
     for ci, (hh, items, accent) in enumerate([(left_h, left_items, ac), (right_h, right_items, NAVY)]):
         x = Inches(0.55 + ci*6.2)
-        add_rect(s, x, Inches(2.0), Inches(5.95), Inches(4.4), fill=CARD,
+        add_rect(s, x, Inches(2.0), Inches(5.95), card_h, fill=CARD,
                  line=LINE, line_w=Pt(1), shape=MSO_SHAPE.ROUNDED_RECTANGLE)
         add_rect(s, x, Inches(2.0), Inches(5.95), Inches(0.7), fill=accent,
                  shape=MSO_SHAPE.ROUNDED_RECTANGLE)
@@ -269,6 +270,12 @@ def slide_twocol(prs, day, kicker, title, left_h, left_items, right_h, right_ite
             add_text(s, x+Inches(0.35), yy, Inches(5.3), Inches(0.6),
                      [[("•  ", 14, accent, True, FONT_B), (it, 14, INK, False, FONT_B)]], line_spacing=1.0)
             yy = Emu(int(yy) + int(Inches(0.62)))
+    if note:
+        add_rect(s, Inches(0.55), Inches(6.05), Inches(12.2), Inches(0.72), fill=LIGHT,
+                 line=LINE, line_w=Pt(1), shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+        add_text(s, Inches(0.85), Inches(6.05), Inches(11.6), Inches(0.72),
+                 [[("NOTE   ", 12, ac, True, FONT_B), (note, 13, INK, False, FONT_B)]],
+                 anchor=MSO_ANCHOR.MIDDLE)
     return s
 
 def slide_lab(prs, day, title, steps, deliverable):
@@ -432,7 +439,8 @@ def build_day(prs, day, cfg):
             if kind == "bullets":
                 slide_bullets(prs, day, sl[1], sl[2], sl[3], sl[4] if len(sl) > 4 else None)
             elif kind == "twocol":
-                slide_twocol(prs, day, sl[1], sl[2], sl[3], sl[4], sl[5], sl[6])
+                slide_twocol(prs, day, sl[1], sl[2], sl[3], sl[4], sl[5], sl[6],
+                             sl[7] if len(sl) > 7 else None)
             elif kind == "lab":
                 slide_lab(prs, day, sl[1], sl[2], sl[3])
             elif kind == "process":
