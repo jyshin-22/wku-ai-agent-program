@@ -97,7 +97,7 @@ def bg(slide, color):
 def footer(slide, day, total_pages=None):
     # 좌측 푸터 텍스트만 (우측 Day·페이지 표시는 stamp_pages 후처리에서)
     add_text(slide, Inches(0.55), Inches(7.02), Inches(8), Inches(0.4),
-             [[("AI 에이전트와 응용  ·  원광대학교 5일 교육", 9, MUTED, False, FONT_B)]],
+             [[("신약 개발을 위한 AI Agent 특강", 9, MUTED, False, FONT_B)]],
              anchor=MSO_ANCHOR.MIDDLE)
 
 def stamp_pages(prs, day):
