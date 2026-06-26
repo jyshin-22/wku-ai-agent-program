@@ -230,21 +230,26 @@ def slide_section(prs, day, sess_no, title, oneliner):
     return s
 
 def slide_bullets(prs, day, kicker, title, bullets, note=None):
-    """bullets: list of (lead, sub_or_None)"""
+    """bullets: list of (lead, sub_or_None). 항목 수에 따라 간격 자동 압축."""
     s = blank(prs); ac = DAY_COLORS[day]
     header(s, day, kicker, title)
+    n = len(bullets) or 1
+    has_sub = any(sub for _, sub in bullets)
+    limit = int(Inches(5.95)) if note else int(Inches(6.85))
+    avail = limit - int(Inches(2.0))
+    nat = int(Inches(0.95)) if has_sub else int(Inches(0.62))
+    step = min(nat, avail // n)
+    sub_off = min(int(Inches(0.42)), step - int(Inches(0.26)))
     y = Inches(2.0)
     for (lead, sub) in bullets:
         add_rect(s, Inches(0.6), y+Inches(0.09), Inches(0.16), Inches(0.16), fill=ac,
                  shape=MSO_SHAPE.OVAL)
-        paras = [[(lead, 16, INK, True, FONT_B)]]
-        add_text(s, Inches(0.95), y, Inches(11.6), Inches(0.5), paras)
+        add_text(s, Inches(0.95), y, Inches(11.6), Inches(0.5),
+                 [[(lead, 16, INK, True, FONT_B)]])
         if sub:
-            add_text(s, Inches(0.95), y+Inches(0.42), Inches(11.6), Inches(0.5),
+            add_text(s, Inches(0.95), Emu(int(y)+sub_off), Inches(11.6), Inches(0.5),
                      [[(sub, 13, MUTED, False, FONT_B)]])
-            y = Emu(int(y) + int(Inches(0.95)))
-        else:
-            y = Emu(int(y) + int(Inches(0.62)))
+        y = Emu(int(y) + step)
     if note:
         add_rect(s, Inches(0.55), Inches(6.05), Inches(12.2), Inches(0.72), fill=LIGHT,
                  line=LINE, line_w=Pt(1), shape=MSO_SHAPE.ROUNDED_RECTANGLE)
