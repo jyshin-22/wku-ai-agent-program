@@ -18,6 +18,7 @@ research-agent/
   run-log-template.md       # 실행 기록 (무엇을 시도/관찰했나)
   collect/                  # ★ 논문 수집(PubMed) 스크립트 + 가이드 (Day 4 오전)
   sources/                  # 자료 폴더 — 교육용 가상 자료 6개 (직접 수집한 papers/로 교체)
+  worksheets/               # 단계별 작업 시트 — 논문 정리표 · gap 목록 · 가설 평가표
   output/                   # 결과물 — 가설 제안서·분석 노트 양식 + 완성 예시(SAMPLE-...)
 ```
 

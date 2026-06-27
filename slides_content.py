@@ -691,7 +691,7 @@ DAYS = {
         "전체 프롬프트는 examples/prompts/research-prompts.md 참고."),
        ("lab","자료 파악 & gap 발견 실습",
         ["papers/ 전체 구조화 추출", "합의 vs 논쟁 지도 작성", "gap 후보 추출(유형별)", "각 gap에 근거 표기"],
-        "자료 지도 + gap 목록 (근거 포함)\n규칙: examples/research-agent/CLAUDE.md"),
+        "논문 정리표 + gap 목록 (근거 포함)\n시트: worksheets/1-literature-matrix · 2-gap-list"),
      ]},
     {"slot":3,"title":"팀별 리서치 AI Agent — 가설 생성 & 평가",
      "oneliner":"gap에서 가설을 다수 생성하고, 근거·새로움·타당성으로 평가해 제안을 확정한다.",
@@ -733,7 +733,7 @@ DAYS = {
         "근거가 약한 가설은 이전 단계로 돌아가 다시 생성하거나 보강한다."),
        ("lab","가설 생성·평가 → 제안 확정",
         ["gap에서 가설 다수 생성", "기준별 평가·점수·랭킹", "우선순위 1~2개 + rationale 보강", "가설 제안 확정"],
-        "최종 가설 제안 + 분석 노트\n에이전트 완주! 양식: output/report-template.md · 분석: result-analysis-template.md"),
+        "가설 평가표 → 최종 가설 제안\n시트: worksheets/3-hypothesis-eval · 제안서: output/report-template.md"),
      ]},
   ],
   "takeaways":[
