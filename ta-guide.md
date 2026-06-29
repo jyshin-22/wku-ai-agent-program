@@ -46,6 +46,10 @@ Day 4가 실습의 핵심이자 가장 손이 많이 가는 구간입니다.
 - Windows: python.org 설치 파일 → 첫 화면 **'Add python.exe to PATH' 체크** → `python --version`
 - macOS: .pkg 설치 → **'Install Certificates.command' 실행** → `python3 --version`
 
+**Node.js 24**
+- nodejs.org에서 Node.js 24 설치(Windows .msi / macOS .pkg 또는 `brew install node@24`) → `node --version`(v24.x)·`npm --version`
+- Claude Code의 npm 설치와 oh-my-claudecode 등 일부 도구가 Node를 사용.
+
 **Claude Code**
 - Windows(PowerShell): `irm https://claude.ai/install.ps1 | iex`
 - macOS: `curl -fsSL https://claude.ai/install.sh | bash` (또는 `brew install --cask claude-code`)
